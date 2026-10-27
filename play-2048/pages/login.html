@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>הרשמה / התחברות</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body data-page="login" data-root="../">
+  <header id="site-header"></header>
+  <main class="container card narrow">
+    <div class="tabs">
+      <button class="tab active" data-target="login-form">התחברות</button>
+      <button class="tab" data-target="register-form">הרשמה</button>
+      <button class="tab" data-target="admin-login-form">מנהל</button>
+    </div>
+
+    <form id="login-form" class="form">
+      <label>שם משתמש <input id="login-user" type="text" autocomplete="username" required></label>
+      <label>סיסמה <input id="login-pass" type="password" autocomplete="current-password" required></label>
+      <p class="error" id="login-error"></p>
+      <button type="submit" class="btn">התחברי</button>
+      <button type="button" class="text-button" data-open-recovery>שכחתי סיסמה</button>
+    </form>
+
+    <form id="admin-login-form" class="form hidden" novalidate>
+      <label>דואר אלקטרוני של מנהל <input id="admin-email" type="email" maxlength="254" autocomplete="username" required></label>
+      <label>סיסמה <input id="admin-pass" type="password" autocomplete="current-password" required></label>
+      <p class="error" id="admin-login-error"></p>
+      <button type="submit" class="btn">כניסה כמנהל</button>
+      <button type="button" class="text-button" data-open-recovery>שכחתי סיסמה</button>
+    </form>
+
+    <form id="register-form" class="form hidden" novalidate>
+      <label>שם משתמש <input id="reg-user" type="text" minlength="2" maxlength="20" autocomplete="username" required></label>
+      <label>דואר אלקטרוני <input id="reg-email" type="email" maxlength="254" autocomplete="email" required></label>
+      <label>טלפון <input id="reg-phone" type="tel" maxlength="25" autocomplete="tel" required></label>
+      <label>סיסמה <input id="reg-pass" type="password" autocomplete="new-password" required></label>
+      <label>אימות סיסמה <input id="reg-pass2" type="password" autocomplete="new-password" required></label>
+      <p class="error" id="reg-error"></p>
+      <button type="submit" class="btn">הירשמי</button>
+    </form>
+
+    <section id="password-recovery" class="recovery-panel hidden">
+      <h2>שחזור סיסמה</h2>
+      <label>דואר אלקטרוני
+        <input id="recovery-email" type="email" autocomplete="email" required>
+      </label>
+      <button id="send-reset-code" type="button" class="btn ghost">שליחת קוד אימות</button>
+      <div id="verify-code-section" class="form hidden">
+        <label>קוד אימות בן 6 ספרות
+          <input id="recovery-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6">
+        </label>
+        <button id="verify-reset-code" type="button" class="btn ghost">אימות קוד</button>
+      </div>
+      <div id="set-password-section" class="form hidden">
+        <label>סיסמה חדשה <input id="new-password" type="password" autocomplete="new-password"></label>
+        <label>אימות סיסמה חדשה <input id="confirm-new-password" type="password" autocomplete="new-password"></label>
+        <button id="save-new-password" type="button" class="btn">שמירת סיסמה חדשה</button>
+      </div>
+      <p class="error" id="recovery-error"></p>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/auth.js"></script>
+  
+</body>
+</html>

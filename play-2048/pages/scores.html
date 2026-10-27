@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>שיאים</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body data-page="scores" data-root="../">
+  <header id="site-header"></header>
+  <main class="container">
+    <section class="card" id="personal"></section>
+    <section class="card">
+      <h2>טבלת שיאים</h2>
+      <div class="filters">
+        <select id="level-filter">
+          <option value="all">כל הרמות</option>
+          <option value="beginner">מתחילים (5×5)</option>
+          <option value="advanced">מתקדמים (4×4)</option>
+        </select>
+        <input id="name-search" type="search" placeholder="חיפוש שם שחקן">
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>#</th><th>שחקן</th><th>ניקוד</th><th>רמה</th><th>זמן</th><th>תאריך</th></tr></thead>
+          <tbody id="scores-body"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="hint"></p>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/scores.js"></script>
+</body>
+</html>

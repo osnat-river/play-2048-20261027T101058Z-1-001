@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ניהול משתמשים</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body data-page="admin" data-root="../">
+  <header id="site-header"></header>
+  <main class="container">
+    <section class="card">
+      <h1>ניהול משתמשים</h1>
+      <div class="admin-actions">
+        <button id="toggle-add-user" class="btn">הוספת משתמש חדש</button>
+        <label for="user-sort">מיון:
+          <select id="user-sort">
+            <option value="name">שם: א׳–ת׳</option>
+            <option value="score-desc">ניקוד: מהגבוה לנמוך</option>
+            <option value="score-asc">ניקוד: מהנמוך לגבוה</option>
+          </select>
+        </label>
+      </div>
+
+      <form id="add-user-form" class="form card admin-form hidden" novalidate>
+        <h2>משתמש חדש</h2>
+        <label>שם משתמש <input id="new-user-name" type="text" minlength="2" maxlength="20" autocomplete="off" required></label>
+        <label>דואר אלקטרוני <input id="new-user-email" type="email" maxlength="254" autocomplete="off" required></label>
+        <label>טלפון <input id="new-user-phone" type="tel" maxlength="25" autocomplete="off" required></label>
+        <label>סיסמה זמנית <input id="new-user-password" type="password" autocomplete="new-password" required></label>
+        <label>ניקוד התחלתי <input id="new-user-score" type="number" min="0" step="1" value="0" required></label>
+        <p id="add-user-error" class="error"></p>
+        <button type="submit" class="btn">שמירת משתמש</button>
+      </form>
+
+      <h2>פרטי משתמשים</h2>
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>שם משתמש</th>
+              <th>דואר אלקטרוני</th>
+              <th>טלפון</th>
+              <th>סיסמה</th>
+              <th>מחיקה</th>
+            </tr>
+          </thead>
+          <tbody id="users-body"></tbody>
+        </table>
+      </div>
+      <p id="no-users" class="hint"></p>
+
+      <h2>נתוני משחקים</h2>
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>שם משתמש</th>
+              <th>שיא אישי</th>
+              <th>משחק אחרון</th>
+              <th>ניקוד במשחק</th>
+              <th>רמה</th>
+              <th>זמן</th>
+              <th>תאריך</th>
+            </tr>
+          </thead>
+          <tbody id="games-body"></tbody>
+        </table>
+      </div>
+      <p id="no-games" class="hint"></p>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/admin.js"></script>
+</body>
+</html>

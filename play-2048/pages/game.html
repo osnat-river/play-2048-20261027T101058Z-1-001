@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>המשחק</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body data-page="game" data-root="../">
+  <header id="site-header"></header>
+  <main class="container">
+
+    <section id="picker" class="card narrow hidden">
+      <h2>בחרו רמה</h2>
+      <div id="levels" class="levels"></div>
+    </section>
+
+    <section id="play" class="hidden">
+      <div class="stats">
+        <div class="stat"><span>ניקוד</span><b id="score">0</b></div>
+        <div class="stat"><span>שיא</span><b id="best">0</b></div>
+        <div class="stat"><span>זמן</span><b id="timer">3:00</b></div>
+      </div>
+      <div class="stats small">
+        <div class="stat"><span>קוביות שנפתחו</span><b id="merges">0</b></div>
+        <div class="stat"><span>ניסיונות</span><b id="moves">0</b></div>
+      </div>
+      <div class="toolbar">
+        <button id="help-btn" class="btn ghost">הוראות</button>
+        <button id="music-btn" class="btn ghost">🎵</button>
+        <button id="pause-btn" class="btn ghost pause-control" aria-label="עצור משחק" title="עצור משחק" aria-pressed="false">
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg>
+        </button>
+        <button id="restart-btn" class="btn ghost">משחק חדש</button>
+        <button id="finish-btn" class="btn ghost">סיים משחק</button>
+      </div>
+      <div class="board-wrap">
+        <div id="board" class="board"></div>
+        <div id="msg" class="msg"></div>
+        <div id="overlay" class="overlay hidden">
+          <h2 id="end-title"></h2>
+          <p id="end-text"></p>
+          <div class="toolbar">
+            <button id="again-btn" class="btn">שוב</button>
+            <a id="to-scores" class="btn ghost">לדף השיאים</a>
+          </div>
+        </div>
+        <div id="pause-overlay" class="overlay hidden">
+          <h2>המשחק נעצר</h2>
+          <p>הזמן והמוזיקה מושהים.</p>
+          <button id="resume-btn" class="btn">המשך משחק</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="help">
+    <h3>איך משחקים?</h3>
+    <ul>
+      <li>החצים במקלדת (או החלקה במסך) מזיזים את כל הקוביות.</li>
+      <li>שתי קוביות זהות שנפגשות מתחברות לקובייה כפולה, והסכום מתווסף לניקוד.</li>
+      <li>מתחילים: לוח 5×5. מתקדמים: לוח 4×4.</li>
+      <li>השיאים נשמרים לשחקנים רשומים.</li>
+    </ul>
+    <button id="close-help" class="btn">הבנתי</button>
+  </dialog>
+
+  <footer id="site-footer"></footer>
+  <audio id="gameMusic" src="../music.mp3" loop preload="auto"></audio>
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/effects.js"></script>
+  <script src="../scripts/game.js"></script>
+</body>
+</html>
